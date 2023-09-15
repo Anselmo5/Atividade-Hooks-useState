@@ -12,21 +12,27 @@ const [email,setemail] =useState("Anslemo@gmail.com")
 const [cpf,setcpf] =useState("178,189,657,32")
 const [confirme,setconfirme] =useState("Anslemo@gmail.com")
 const [selectedLanguage, setSelectedLanguage] = useState();
-const [toggleCheckBox, setToggleCheckBox] = useState()
+const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
 function cadastar (){
-alert="Foi"
-console.log(nome)
-console.log(date)
-console.log(senha)
-console.log(email)
-console.log(cpf)
-console.log(confirme)
-}
+  console.log(nome)
+  console.log(date)
+  console.log(senha)
+  console.log(email)
+  console.log(cpf)
+  console.log(confirme)
+  setemail(""),
+  setnome(""),
+  setdate(""),
+  setsenha(""),
+  setconfirme(""),
+  setcpf("")
+  }
+  
 
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
       <View style={styles.aling}>
         <View style={styles.form}>
           <TextInput placeholder='Nome Completo' style={styles.inp}  defaultValue={nome}/>
@@ -39,18 +45,17 @@ console.log(confirme)
           />
 
           <CheckBox
-            disabled={true}
+            disabled={false == "Masculino"}
             value={toggleCheckBox}
             onValueChange={(newValue) => setToggleCheckBox(newValue)}
-            style={styles.alingcheck}
+            style={styles.alingchec2}
             
           />
-          <Text>Masculino</Text>
-          <TextInput placeholder='Data de Nascimento' style={styles.inp} defaultValue={date} />
-          <TextInput placeholder='Senha' secureTextEntry style={styles.inp} defaultValue={senha} />
-          <TextInput placeholder='E-mail' style={styles.inp} defaultValue={email}/>
-          <TextInput placeholder='Confirme Seu Email' style={styles.inp} defaultValue={confirme} />
-          <TextInput placeholder='CPF' style={styles.inp} defaultValue={cpf} />
+            <TextInput placeholder='Data de Nascimento' style={styles.inp} defaultValue={date}  />
+            <TextInput placeholder='Senha' secureTextEntry style={styles.inp} defaultValue={senha}  />
+            <TextInput placeholder='E-mail' style={styles.inp} defaultValue={email} />
+            <TextInput placeholder='Confirme Seu Email' style={styles.inp} defaultValue={confirme} />
+            <TextInput placeholder='CPF' style={styles.inp} defaultValue={cpf}  />
           <Picker
             selectedValue={selectedLanguage}
             onValueChange={(itemValue, itemIndex) =>
@@ -66,7 +71,7 @@ console.log(confirme)
 
           <Pressable style={styles.aling} >
             <View>
-              <Text onPress={() => cadastar()}>Confirmar</Text>
+              <Text onPress={() =>cadastar() }>Confirmar</Text>
             </View>
           </Pressable>
         </View>  
@@ -91,7 +96,13 @@ const styles = StyleSheet.create({
   },
 
   alingcheck:{
-    margin:5,
+    marginLeft:130,
+    marginTop:10
+  },
+
+  alingchec2:{
+    marginLeft:30,
+    marginTop:"-16px",
   },
   inp:{
     margin:5,
